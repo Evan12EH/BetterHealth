@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -14,38 +12,18 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class NextActivity extends AppCompatActivity implements View.OnClickListener {
+import edu.utsa.cs3443.betterhealth.model.Food;
 
-    private TextView textView8;
-    private ImageView imageView;
-    private String summary;
-    private int difference;
+public class ResetActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_next);
+        setContentView(R.layout.activity_reset);
 
-        setupButton(R.id.button8);
-
-        Intent intent = getIntent();
-        summary = intent.getStringExtra("summary");
-        difference = intent.getIntExtra("difference", 0);
-        textView8 = findViewById(R.id.textView8);
-        imageView = findViewById(R.id.imageView);
-
-        if (difference > 0) {
-            imageView.setImageResource(R.drawable.greenyes);
-        }
-        else if (difference < 0) {
-            imageView.setImageResource(R.drawable.redno);
-        }
-        else if (difference == 0) {
-            imageView.setImageResource(R.drawable.gray);
-        }
-
-        textView8.setText(summary);
+        setupButton(R.id.button9);
+        setupButton(R.id.button10);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -56,8 +34,15 @@ public class NextActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        if(view.getId() == R.id.button8) {
+        if(view.getId() == R.id.button9) {
             Intent intent = new Intent(this, MainActivity.class);
+            resetProgress();
+            Toast.makeText(getApplicationContext(), "Progress reset!", Toast.LENGTH_SHORT).show();
+            startActivity(intent);
+        }
+        else if(view.getId() == R.id.button10) {
+            Intent intent = new Intent(this, MainActivity.class);
+            Toast.makeText(getApplicationContext(), "Progress kept", Toast.LENGTH_SHORT).show();
             startActivity(intent);
         }
     }
@@ -66,4 +51,9 @@ public class NextActivity extends AppCompatActivity implements View.OnClickListe
         Button button = findViewById(buttonID);
         button.setOnClickListener(this);
     }
+
+    private void resetProgress() {
+        Food.resetProgress(this);
+    }
+
 }

@@ -16,20 +16,20 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import edu.utsa.cs3443.betterhealth.model.Food;
 
-public class CreateFoodActivity extends AppCompatActivity implements View.OnClickListener {
+public class GoalActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextInputEditText foodText;
-    private TextInputEditText caloriesText;
+    private TextInputEditText goalText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_createfood);
+        setContentView(R.layout.activity_goal);
 
-        setupButton(R.id.button5);
-        foodText = findViewById(R.id.editText);
-        caloriesText = findViewById(R.id.editText2);
+        setupButton(R.id.button7);
+        setupButton(R.id.button11);
+
+        goalText = findViewById(R.id.editText4);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -40,18 +40,17 @@ public class CreateFoodActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View view) {
-        if(view.getId() == R.id.button5) {
-            String food = foodText.getText().toString().trim();
-            String calories = caloriesText.getText().toString().trim();
-            try {
-                int caloriesInt = Integer.parseInt(calories);
-                createFood(food, caloriesInt);
-                Toast.makeText(getApplicationContext(), "Food added!", Toast.LENGTH_SHORT).show();
-                foodText.setText("");
-                caloriesText.setText("");
-            } catch (NumberFormatException e) {
-                Toast.makeText(getApplicationContext(), "Invalid calorie value", Toast.LENGTH_SHORT).show();
-            }
+        if(view.getId() == R.id.button7) {
+            String goal = goalText.getText().toString().trim();
+            int goalValue = Integer.parseInt(goal);
+            setGoal(goalValue);
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            Toast.makeText(getApplicationContext(), "Goal Set!", Toast.LENGTH_SHORT).show();
+        }
+        if(view.getId() == R.id.button11) {
+            Intent intent = new Intent(this, ResetActivity.class);
+            startActivity(intent);
         }
     }
 
@@ -60,8 +59,8 @@ public class CreateFoodActivity extends AppCompatActivity implements View.OnClic
         button.setOnClickListener(this);
     }
 
-    private void createFood(String food, int calories){
-        Food.createFood(this, food, calories);
+    private void setGoal(int goal){
+        Food.setGoal(this, goal);
     }
 
 }

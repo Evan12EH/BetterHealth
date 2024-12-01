@@ -36,6 +36,7 @@ public class AddFoodActivity extends AppCompatActivity implements View.OnClickLi
 
         setupButton(R.id.button3);
         setupButton(R.id.button4);
+        setupButton(R.id.button12);
         foodText = findViewById(R.id.editText3);
 
         Intent intent = getIntent();
@@ -59,13 +60,18 @@ public class AddFoodActivity extends AppCompatActivity implements View.OnClickLi
         else if(view.getId() == R.id.button4) {
             String food = foodText.getText().toString().trim();
             caloriesValue = getCalories(food);
-            Toast.makeText(getApplicationContext(), caloriesValue, Toast.LENGTH_SHORT).show();
             if(caloriesValue == 0) {
                 Toast.makeText(getApplicationContext(), "Calories cannot be 0", Toast.LENGTH_SHORT).show();
             }
             else {
                 addFood(caloriesValue);
+                Toast.makeText(getApplicationContext(), "Food added!", Toast.LENGTH_SHORT).show();
+                foodText.setText("");
             }
+        }
+        else if(view.getId() == R.id.button12) {
+            Intent intent = new Intent(this, DeleteFoodActivity.class);
+            startActivity(intent);
         }
     }
 

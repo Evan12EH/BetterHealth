@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddFoodActivity">
+    tools:context=".AddFoodActivity"
+    android:background="@color/red" >
 
     <TextView
         android:id="@+id/textView6"
@@ -13,6 +14,7 @@
         android:layout_height="wrap_content"
         android:text="@string/your_foods"
         android:textSize="32sp"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,30 +27,28 @@
         android:layout_height="wrap_content"
         android:text="@string/type"
         android:textSize="24sp"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.739" />
+        app:layout_constraintVertical_bias="0.62" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.803">
+        app:layout_constraintVertical_bias="0.682">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editText3"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:hint="@string/name"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="569dp" />
-
+            android:hint="@string/name" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -58,6 +58,7 @@
         android:scaleX="1.5"
         android:scaleY="1.5"
         android:text="@string/create_food"
+        android:backgroundTint="@color/pink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.15"
@@ -72,6 +73,7 @@
         android:scaleX="1.5"
         android:scaleY="1.5"
         android:text="@string/add_food"
+        android:backgroundTint="@color/pink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.85"
@@ -80,13 +82,14 @@
         app:layout_constraintVertical_bias="0.923" />
 
     <ScrollView
-        android:layout_width="335dp"
-        android:layout_height="442dp"
+        android:layout_width="340dp"
+        android:layout_height="307dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.176">
+        app:layout_constraintVertical_bias="0.136">
 
         <TextView
             android:id="@+id/textView5"
@@ -94,9 +97,25 @@
             android:layout_height="wrap_content"
             android:text="TextView"
             android:textSize="24sp"
+            android:textColor="@android:color/white"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintVertical_bias="0.382" />
 
     </ScrollView>
+
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        android:text="@string/delete"
+        android:backgroundTint="@color/pink"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.802" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

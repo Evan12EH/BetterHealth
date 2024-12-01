@@ -7,6 +7,17 @@
     <string name="name">Name</string>
     <string name="calories">Calories</string>
     <string name="create_newfood">Create New Food</string>
-    <string name="type">Type food to add here!:</string>
+    <string name="type">Type food to add here:</string>
     <string name="your_foods">Your foods:</string>
+    <string name="calorie_goal">Set Calorie Goal</string>
+    <string name="set">Set</string>
+    <string name="home">Home</string>
+    <string name="progress">See your progress here:</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="confirm">Are you sure you want to reset all of your progress?</string>
+    <string name="reset">Reset All Progress</string>
+    <string name="delete">Delete Food</string>
+    <string name="type2">Type food to delete here:</string>
+    <string name="delete2">Delete</string>
 </resources>
