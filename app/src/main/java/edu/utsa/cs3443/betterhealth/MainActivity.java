@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+        checkFiles();
         setupButton(R.id.button);
         setupButton(R.id.button2);
         setupButton(R.id.button6);
@@ -102,6 +103,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private String getInfo(){
         return Food.getInfo(this);
+    }
+
+    private void checkFiles(){
+        Food.checkFiles(this);
     }
 
 }

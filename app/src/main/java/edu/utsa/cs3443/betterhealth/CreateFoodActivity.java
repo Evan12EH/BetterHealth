@@ -20,6 +20,7 @@ public class CreateFoodActivity extends AppCompatActivity implements View.OnClic
 
     private TextInputEditText foodText;
     private TextInputEditText caloriesText;
+    private String allFoods;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +47,11 @@ public class CreateFoodActivity extends AppCompatActivity implements View.OnClic
             try {
                 int caloriesInt = Integer.parseInt(calories);
                 createFood(food, caloriesInt);
+                allFoods = Food.readData(this);
                 Toast.makeText(getApplicationContext(), "Food added!", Toast.LENGTH_SHORT).show();
-                foodText.setText("");
-                caloriesText.setText("");
+                Intent intent = new Intent(this, AddFoodActivity.class);
+                intent.putExtra("allFoods", allFoods);
+                startActivity(intent);
             } catch (NumberFormatException e) {
                 Toast.makeText(getApplicationContext(), "Invalid calorie value", Toast.LENGTH_SHORT).show();
             }
@@ -62,6 +65,10 @@ public class CreateFoodActivity extends AppCompatActivity implements View.OnClic
 
     private void createFood(String food, int calories){
         Food.createFood(this, food, calories);
+    }
+
+    private void readData(){
+        Food.readData(this);
     }
 
 }

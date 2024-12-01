@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.widget.Toast;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -415,6 +416,24 @@ public class Food {
             out.close();
         } catch (IOException e) {
             System.out.println("Failed to write data");
+        }
+    }
+
+    public static void checkFiles(Context context) {
+        String[] fileNames = {"current.txt", "progress.txt", "foodInfo.txt"};
+
+        for (int i = 0; i < fileNames.length; i++) {
+            String fileName = fileNames[i];
+
+            File file = new File(context.getFilesDir(), fileName);
+
+            if (!file.exists()) {
+                try {
+                    file.createNewFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
