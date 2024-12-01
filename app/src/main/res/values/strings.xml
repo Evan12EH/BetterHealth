@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">BetterHealth</string>
+    <string name="add_food">Add Food</string>
+    <string name="next_day">Next Day</string>
+    <string name="day_complete">Day Complete!</string>
+    <string name="create_food">Create Food</string>
+    <string name="name">Name</string>
+    <string name="calories">Calories</string>
+    <string name="create_newfood">Create New Food</string>
+    <string name="type">Type food to add here!:</string>
+    <string name="your_foods">Your foods:</string>
+</resources>
