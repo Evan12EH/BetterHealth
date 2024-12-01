@@ -46,6 +46,7 @@ public class CreateFoodActivity extends AppCompatActivity implements View.OnClic
             String calories = caloriesText.getText().toString().trim();
             try {
                 int caloriesInt = Integer.parseInt(calories);
+                caloriesInt = Math.abs(caloriesInt);
                 createFood(food, caloriesInt);
                 allFoods = Food.readData(this);
                 Toast.makeText(getApplicationContext(), "Food added!", Toast.LENGTH_SHORT).show();
