@@ -28,6 +28,7 @@ public class GoalActivity extends AppCompatActivity implements View.OnClickListe
 
         setupButton(R.id.button7);
         setupButton(R.id.button11);
+        setupButton(R.id.button14);
 
         goalText = findViewById(R.id.editText4);
 
@@ -48,8 +49,12 @@ public class GoalActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
             Toast.makeText(getApplicationContext(), "Goal Set!", Toast.LENGTH_SHORT).show();
         }
-        if(view.getId() == R.id.button11) {
+        else if(view.getId() == R.id.button11) {
             Intent intent = new Intent(this, ResetActivity.class);
+            startActivity(intent);
+        }
+        else if(view.getId() == R.id.button14) {
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
     }

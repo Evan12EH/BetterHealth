@@ -37,6 +37,7 @@ public class AddFoodActivity extends AppCompatActivity implements View.OnClickLi
         setupButton(R.id.button3);
         setupButton(R.id.button4);
         setupButton(R.id.button12);
+        setupButton(R.id.button17);
         foodText = findViewById(R.id.editText3);
 
         Intent intent = getIntent();
@@ -71,6 +72,10 @@ public class AddFoodActivity extends AppCompatActivity implements View.OnClickLi
         }
         else if(view.getId() == R.id.button12) {
             Intent intent = new Intent(this, DeleteFoodActivity.class);
+            startActivity(intent);
+        }
+        else if(view.getId() == R.id.button17) {
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
     }

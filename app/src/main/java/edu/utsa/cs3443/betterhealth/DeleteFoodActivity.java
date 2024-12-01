@@ -27,6 +27,7 @@ public class DeleteFoodActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_deletefood);
 
         setupButton(R.id.button13);
+        setupButton(R.id.button15);
 
         foodText = findViewById(R.id.editText4);
 
@@ -45,6 +46,10 @@ public class DeleteFoodActivity extends AppCompatActivity implements View.OnClic
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             Toast.makeText(getApplicationContext(), "Food deleted", Toast.LENGTH_SHORT).show();
+        }
+        else if(view.getId() == R.id.button15) {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         }
     }
 

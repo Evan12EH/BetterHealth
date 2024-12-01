@@ -29,6 +29,7 @@ public class CreateFoodActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_createfood);
 
         setupButton(R.id.button5);
+        setupButton(R.id.button16);
         foodText = findViewById(R.id.editText);
         caloriesText = findViewById(R.id.editText2);
 
@@ -56,6 +57,10 @@ public class CreateFoodActivity extends AppCompatActivity implements View.OnClic
             } catch (NumberFormatException e) {
                 Toast.makeText(getApplicationContext(), "Invalid calorie value", Toast.LENGTH_SHORT).show();
             }
+        }
+        else if(view.getId() == R.id.button16) {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         }
     }
 
