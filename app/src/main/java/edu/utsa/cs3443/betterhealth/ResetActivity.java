@@ -14,6 +14,16 @@ import androidx.core.view.WindowInsetsCompat;
 
 import edu.utsa.cs3443.betterhealth.model.Food;
 
+/**
+ * The ResetActivity class handles the logic for
+ * resetting the data in the app
+ *
+ * @author Alberto Gonzales
+ * @author Daniel Salas
+ * @author Evan Hudson
+ * @author Michael Montesdeoca
+ * @author Jayden Hendrix
+ */
 public class ResetActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
@@ -47,11 +57,18 @@ public class ResetActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
+    /**
+     * Function to setup button
+     * @param buttonID ID of the button to setup
+     */
     private void setupButton(int buttonID) {
         Button button = findViewById(buttonID);
         button.setOnClickListener(this);
     }
 
+    /**
+     * Function to allow use of resetProgress
+     */
     private void resetProgress() {
         Food.resetProgress(this);
     }

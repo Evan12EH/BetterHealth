@@ -16,11 +16,26 @@ import java.util.Scanner;
 
 import edu.utsa.cs3443.betterhealth.MainActivity;
 
+/**
+ * The Food class represents a food, and holds
+ * all of the functions necessary for the application
+ *
+ * @author Alberto Gonzales
+ * @author Daniel Salas
+ * @author Evan Hudson
+ * @author Michael Montesdeoca
+ * @author Jayden Hendrix
+ */
 public class Food {
 
     private String name;
     private String calories;
 
+    /**
+     * Returns a string containing the text data from "foodInfo.txt"
+     * @param context The context of the application
+     * @return A string containing the text data from "foodInfo.txt"
+     */
     public static String readData(Context context) {
         FileInputStream fis = null;
         Scanner scan = null;
@@ -42,10 +57,16 @@ public class Food {
         return allFoods.toString();
     }
 
+    /**
+     * Adds a new food and its calories to "foodInfo.txt"
+     * @param context The context of the application
+     * @param food The name of a food as a string
+     * @param calories The calories of the respective food as an int
+     */
     public static void createFood(Context context, String food, int calories){
         try {
             OutputStream out = context.openFileOutput("foodInfo.txt", Context.MODE_APPEND );
-            String updatedData = food + ": " + calories + "cal\n";
+            String updatedData = food + ": " + calories + "cal" + "\n";
             out.write(updatedData.getBytes(StandardCharsets.UTF_8));
             out.close();
         } catch (IOException e) {
@@ -53,6 +74,14 @@ public class Food {
         }
     }
 
+    /**
+     * Returns the number of calories as an
+     * int from the food given as a parameter
+     * @param context The context of the application
+     * @param food The name of a food as a string
+     * @return The number of calories returned as an
+     * int from the food given as a parameter
+     */
     public static int getCalories(Context context, String food){
         FileInputStream fis = null;
         Scanner scan = null;
@@ -79,6 +108,11 @@ public class Food {
         return calories;
     }
 
+    /**
+     * Deletes a food and its calories from "foodInfo.txt"
+     * @param context The context of the application
+     * @param food The name of a food as a string
+     */
     public static void deleteFood(Context context, String food){
         FileInputStream fis = null;
         Scanner scan = null;
@@ -99,6 +133,11 @@ public class Food {
                     newInfo.append(line);
                 }
             }
+
+            if (newInfo.length() > 0 && !newInfo.toString().endsWith("\n")) {
+                newInfo.append("\n");
+            }
+
             try {
                 OutputStream out = context.openFileOutput("foodInfo.txt", Context.MODE_PRIVATE );
                 out.write(newInfo.toString().getBytes(StandardCharsets.UTF_8));
@@ -109,6 +148,11 @@ public class Food {
         } catch (IOException e) {}
     }
 
+    /**
+     * Adds the calories of a food you ate to the current calories
+     * @param context The context of the application
+     * @param calories The calories to be added to the current total as an int
+     */
     public static void addFood(Context context, int calories){
         FileInputStream fis = null;
         Scanner scan = null;
@@ -144,6 +188,11 @@ public class Food {
         } catch (IOException e) {}
     }
 
+    /**
+     * Resets the text data in "current.txt" when
+     * user goes to the next day
+     * @param context The context of the application
+     */
     public static void nextDay(Context context){
         FileInputStream fis = null;
         Scanner scan = null;
@@ -180,6 +229,11 @@ public class Food {
         } catch (IOException e) {}
     }
 
+    /**
+     * Adds the info from "current.txt" and adds it to
+     * "progress.txt" to log the users data
+     * @param context The context of the application
+     */
     public static void addProgress(Context context){
         FileInputStream fis = null;
         Scanner scan = null;
@@ -213,6 +267,13 @@ public class Food {
         } catch (IOException e) {}
     }
 
+    /**
+     * Returns a text summary of all previous data
+     * recorded by the app as a string
+     * @param context The context of the application
+     * @return A text summary of all previous data
+     * recorded by the app as a string
+     */
     public static String getInfo(Context context) {
         FileInputStream fis = null;
         Scanner scan = null;
@@ -253,6 +314,13 @@ public class Food {
         return allProgress.toString();
     }
 
+    /**
+     * Returns the difference between the amount of calories eaten
+     * in a day versus the set calorie goal as an int
+     * @param context The context of the application
+     * @return The difference between the amount of calories eaten
+     * in a day versus the set calorie goal as an int
+     */
     public static int calculateGoal(Context context){
         FileInputStream fis = null;
         Scanner scan = null;
@@ -279,6 +347,11 @@ public class Food {
         return solved;
     }
 
+    /**
+     * Returns the current calorie goal of the user as an int
+     * @param context The context of the application
+     * @return The current calorie goal of the user as an int
+     */
     public static int getCurrent(Context context){
         FileInputStream fis = null;
         Scanner scan = null;
@@ -303,6 +376,11 @@ public class Food {
         return currentCalories;
     }
 
+    /**
+     * Sets the calorie goal of the user
+     * @param context The context of the application
+     * @param goal The new calorie goal to be set as an int
+     */
     public static void setGoal(Context context, int goal){
         FileInputStream fis = null;
         Scanner scan = null;
@@ -336,6 +414,14 @@ public class Food {
         } catch (IOException e) {}
     }
 
+    /**
+     * Returns a summary of your eating progress of the day given as a string
+     * @param context The context of the application
+     * @param difference The difference in calories eaten versus
+     * the set calorie goal as an int
+     * @param current The current calorie goal of the user as an int
+     * @return A summary of your eating progress of the day given as a string
+     */
     public static String makeSummary(Context context, int difference, int current) {
         FileInputStream fis = null;
         Scanner scan = null;
@@ -379,6 +465,11 @@ public class Food {
         return summary.toString();
     }
 
+    /**
+     * Checks if the text file "current.txt is empty, if
+     * it is, add the necessary data for a first time user
+     * @param context The context of the application
+     */
     public static void checkIsEmpty(Context context){
         FileInputStream fis = null;
         Scanner scan = null;
@@ -402,6 +493,11 @@ public class Food {
         } catch (IOException e) {}
     }
 
+    /**
+     * Resets the text data in "current.txt" and "progress.txt"
+     * to that of a first time user
+     * @param context The context of the application
+     */
     public static void resetProgress(Context context){
         try {
             OutputStream out = context.openFileOutput("current.txt", Context.MODE_PRIVATE );
@@ -419,6 +515,11 @@ public class Food {
         }
     }
 
+    /**
+     * Checks if the files necessary for the application are
+     * present, if not, creates them
+     * @param context The context of the application
+     */
     public static void checkFiles(Context context) {
         String[] fileNames = {"current.txt", "progress.txt", "foodInfo.txt"};
 

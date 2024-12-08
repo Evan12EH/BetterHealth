@@ -18,6 +18,17 @@ import java.util.List;
 
 import edu.utsa.cs3443.betterhealth.model.Food;
 
+/**
+ * The MainActivity class handles the main screen view, accessing
+ * the AddFoodActivity, NextActivity, and GoalActivity classes,
+ * and displaying the summary of the user's data
+ *
+ * @author Alberto Gonzales
+ * @author Daniel Salas
+ * @author Evan Hudson
+ * @author Michael Montesdeoca
+ * @author Jayden Hendrix
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView textView9;
@@ -72,39 +83,70 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * Function to setup button
+     * @param buttonID ID of the button to setup
+     */
     private void setupButton(int buttonID) {
         Button button = findViewById(buttonID);
         button.setOnClickListener(this);
     }
 
+    /**
+     * Function to allow use of nextDay
+     */
     private void nextDay(){
         Food.nextDay(this);
     }
 
+    /**
+     * Function to allow use of addProgress
+     */
     private void addProgress(){
         Food.addProgress(this);
     }
 
+    /**
+     * Function to allow use of checkIsEmpty
+     */
     private void checkIsEmpty(){
         Food.checkIsEmpty(this);
     }
 
+    /**
+     * Function to allow use of calculateGoal
+     */
     private int calculateGoal(){
         return Food.calculateGoal(this);
     }
 
+    /**
+     * Function to allow use of makeSummary
+     * @param difference The difference in calories eaten versus
+     * @param current The current calorie goal of the user as an int
+     * @return A summary of your eating progress of the day given as a string
+     */
     private String makeSummary(int difference, int current){
         return Food.makeSummary(this, difference, current);
     }
 
+    /**
+     * Function to allow use of getCurrent
+     */
     private int getCurrent(){
         return Food.getCurrent(this);
     }
 
+    /**
+     * Function to allow use of getInfo
+     */
     private String getInfo(){
         return Food.getInfo(this);
     }
 
+    /**
+     * Function to allow use of checkFiles
+     */
     private void checkFiles(){
         Food.checkFiles(this);
     }

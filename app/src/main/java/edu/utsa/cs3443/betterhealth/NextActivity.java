@@ -14,6 +14,16 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+/**
+ * The NextActivity class handles summarizing and reseting
+ * data for the user to prepare for the next day
+ *
+ * @author Alberto Gonzales
+ * @author Daniel Salas
+ * @author Evan Hudson
+ * @author Michael Montesdeoca
+ * @author Jayden Hendrix
+ */
 public class NextActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView textView8;
@@ -62,6 +72,10 @@ public class NextActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * Function to setup button
+     * @param buttonID ID of the button to setup
+     */
     private void setupButton(int buttonID) {
         Button button = findViewById(buttonID);
         button.setOnClickListener(this);

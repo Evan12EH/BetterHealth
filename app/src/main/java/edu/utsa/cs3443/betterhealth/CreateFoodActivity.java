@@ -16,6 +16,16 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import edu.utsa.cs3443.betterhealth.model.Food;
 
+/**
+ * The CreateFoodActivity class is used to create
+ * new foods to be added to the application
+ *
+ * @author Alberto Gonzales
+ * @author Daniel Salas
+ * @author Evan Hudson
+ * @author Michael Montesdeoca
+ * @author Jayden Hendrix
+ */
 public class CreateFoodActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextInputEditText foodText;
@@ -64,15 +74,27 @@ public class CreateFoodActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    /**
+     * Function to setup button
+     * @param buttonID ID of the button to setup
+     */
     private void setupButton(int buttonID) {
         Button button = findViewById(buttonID);
         button.setOnClickListener(this);
     }
 
+    /**
+     * Function to allow use of createFood
+     * @param food The name of a food as a string
+     * @param calories The calories of the respective food as an int
+     */
     private void createFood(String food, int calories){
         Food.createFood(this, food, calories);
     }
 
+    /**
+     * Function to allow use of readData
+     */
     private void readData(){
         Food.readData(this);
     }

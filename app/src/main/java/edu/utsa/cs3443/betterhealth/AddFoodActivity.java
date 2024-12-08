@@ -19,6 +19,17 @@ import java.security.cert.CRL;
 
 import edu.utsa.cs3443.betterhealth.model.Food;
 
+/**
+ * The AddFoodActivity class handles adding the food
+ * food the user's eaten and accessing the DeleteFoodActivity
+ * and CreateFoodActivity screens
+ *
+ * @author Alberto Gonzales
+ * @author Daniel Salas
+ * @author Evan Hudson
+ * @author Michael Montesdeoca
+ * @author Jayden Hendrix
+ */
 public class AddFoodActivity extends AppCompatActivity implements View.OnClickListener {
 
     private String allFoods;
@@ -80,15 +91,29 @@ public class AddFoodActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
+    /**
+     * Function to setup button
+     * @param buttonID ID of the button to setup
+     */
     private void setupButton(int buttonID) {
         Button button = findViewById(buttonID);
         button.setOnClickListener(this);
     }
 
+    /**
+     * Function to allow use of getCalories
+     * @param food The name of a food as a string
+     * @return The number of calories returned as an
+     * int from the food given as a parameter
+     */
     private int getCalories(String food){
         return Food.getCalories(this, food);
     }
 
+    /**
+     * Function to allow use of addFood
+     * @param calories The calories to be added to the current total as an int
+     */
     private void addFood(int calories){
         Food.addFood(this, calories);
     }

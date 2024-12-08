@@ -16,6 +16,16 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import edu.utsa.cs3443.betterhealth.model.Food;
 
+/**
+ * The DeleteFoodActivity class is used
+ * to delete foods from the application
+ *
+ * @author Alberto Gonzales
+ * @author Daniel Salas
+ * @author Evan Hudson
+ * @author Michael Montesdeoca
+ * @author Jayden Hendrix
+ */
 public class DeleteFoodActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextInputEditText foodText;
@@ -53,11 +63,19 @@ public class DeleteFoodActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    /**
+     * Function to setup button
+     * @param buttonID ID of the button to setup
+     */
     private void setupButton(int buttonID) {
         Button button = findViewById(buttonID);
         button.setOnClickListener(this);
     }
 
+    /**
+     * Function to allow use of deleteFood
+     * @param food The name of a food as a string
+     */
     private void deleteFood(String food){
         Food.deleteFood(this, food);
     }
